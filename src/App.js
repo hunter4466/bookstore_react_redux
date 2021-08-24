@@ -1,47 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
+  Redirect,
 } from 'react-router-dom';
-import HomePage from './components/homepage';
+import CategoriesComponent from './redux/categories/categories';
+import BooksComponent from './redux/books/books';
+
 // eslint-disable-next-line react/prefer-stateless-function
-export default App = () => {
-        const status = this.state;
-        return (
-          <Router>
-            <div className="hello">
-              <h1>hello world</h1>
-              <h1>{status.data}</h1>
-            </div>
-            <div className="switch">
-              <div className="switch_header">
-                <ul className="nav-bar">
-                  <li>
-                    <Link to="/home">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/store">Store</Link>
-                  </li>
-                  <li>
-                    <Link to="/shop">Shop</Link>
-                  </li>
-                </ul>
-              </div>
-              <Switch>
-                <Route path="/home">
-                  <HomePage />
-                </Route>
-                <Route path="/store">
-                  <Store />
-                </Route>
-                <Route path="/shop">
-                  <ShoppingCart />
-                </Route>
-              </Switch>
-            </div>
-          </Router>
-        );
-      
-}
+const App = () => (
+  <Router>
+    <ul className="nav-bar">
+      <li>
+        Bookstore CMS
+      </li>
+      <li>
+        <Link to="/">Books</Link>
+      </li>
+      <li>
+        <Link to="/categories">Categories</Link>
+      </li>
+    </ul>
+    <Switch>
+      <Route exact path="/">
+        <Redirect to="/books" />
+      </Route>
+      <Route path="/books">
+        <BooksComponent />
+      </Route>
+      <Route path="/categories">
+        <CategoriesComponent />
+      </Route>
+    </Switch>
+  </Router>
+);
+export default App;

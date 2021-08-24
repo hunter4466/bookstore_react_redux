@@ -27,18 +27,16 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-test-renderer": "^17.0.2",
+    "redux": "^4.1.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "concurrently \"npm run start_server\"\"npm run start_app\"",
-    "start_server": "node server.js",
     "dev": "nodemon server.js",
-    "start_app": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",
