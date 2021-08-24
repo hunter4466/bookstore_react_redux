@@ -1,6 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/named */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, removeBook } from '../redux/books/books';

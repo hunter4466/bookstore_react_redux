@@ -10,11 +10,9 @@ const addBook = (c, t, a) => ({
   author: a,
 });
 
-const removeBook = (c, t, a) => ({
+const removeBook = (i) => ({
   type: REMOVE_BOOK,
-  category: c,
-  title: t,
-  author: a,
+  id: i,
 });
 
 const booksReducer = (state = initialState, action) => {
@@ -28,7 +26,7 @@ const booksReducer = (state = initialState, action) => {
       });
       return state;
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
+      return state.filter((book) => action.id !== book.id);
     default:
       return state;
   }
