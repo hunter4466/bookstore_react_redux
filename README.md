@@ -11,7 +11,7 @@
 
 - Html, Javascript, SCSS
 - React JS (Webpack included)
-- Developed in VSCode
+- Developed in VSCode 
 
 To get a local copy up and running follow these simple example steps.
 Run:
