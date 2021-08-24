@@ -1,4 +1,4 @@
-{
+  {
   "env": {
     "browser": true,
     "es6": true,
@@ -13,15 +13,12 @@
     "sourceType": "module"
   },
   "extends": ["airbnb", "plugin:react/recommended"],
-  "plugins": ["react",
-    "react-hooks"],
+  "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
-    "no-shadow": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "no-shadow": "off"
   },
   "ignorePatterns": [
     "dist/",

@@ -3,11 +3,9 @@ const REMOVE_BOOK = 'redux/books/REMOVE_BOOK';
 
 const initialState = [];
 
-const addBook = (c, t, a) => ({
+const addBook = (payload) => ({
   type: ADD_BOOK,
-  category: c,
-  title: t,
-  author: a,
+  payload,
 });
 
 const removeBook = (i) => ({
@@ -16,15 +14,17 @@ const removeBook = (i) => ({
 });
 
 const booksReducer = (state = initialState, action) => {
+  const array = [];
+  state.forEach((elem) => {
+    array.push(elem);
+  });
   switch (action.type) {
     case ADD_BOOK:
-      state.push({
+      array.push({
         id: state.length + 1,
-        category: action.category,
-        title: action.title,
-        author: action.author,
+        data: action.payload,
       });
-      return state;
+      return array;
     case REMOVE_BOOK:
       return state.filter((book) => action.id !== book.id);
     default:
