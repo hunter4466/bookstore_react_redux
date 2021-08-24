@@ -1,24 +1,29 @@
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
+const ADD_BOOK = 'redux/books/ADD_BOOK';
+const REMOVE_BOOK = 'redux/books/REMOVE_BOOK';
 
 const initialState = [];
 
-export const addBook = (payload) => ({
+const addBook = (c, t, a) => ({
   type: ADD_BOOK,
-  payload,
-});
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
+  category: c,
+  title: t,
+  author: a,
 });
 
-const reducer = (state = initialState, action) => {
+const removeBook = (c, t, a) => ({
+  type: REMOVE_BOOK,
+  category: c,
+  title: t,
+  author: a,
+});
+
+const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
       state.push({
         id: state.length + 1,
         category: action.category,
-        book: action.book,
+        title: action.title,
         author: action.author,
       });
       return state;
@@ -29,4 +34,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export { addBook, removeBook, booksReducer };
