@@ -1,9 +1,32 @@
-import React from 'react';
+const ADD_BOOK = 'bookStore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-const BooksComponent = () => (
-  <div>
-    <h1>Books</h1>
-  </div>
-);
+const initialState = [];
 
-export default BooksComponent;
+export const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK,
+  payload,
+});
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      state.push({
+        id: state.length + 1,
+        category: action.category,
+        book: action.book,
+        author: action.author,
+      });
+      return state;
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.id);
+    default:
+      return state;
+  }
+};
+
+export default reducer;
