@@ -18,7 +18,7 @@ Run:
 - `git clone https://github.com/hunter4466/bookstore_react_redux.git`
 - `cd bookstore_react_redux`
 -`Install node_modules, run npm install and install 14.17.4 node version (use nvm)`
-- Run 'npm run start' from the command line. 
+- Run 'npm run start' from the command line.
 
 ## Link
 
