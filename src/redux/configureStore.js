@@ -8,7 +8,7 @@ const reducer = combineReducers({
   booksReducer,
 });
 
-const postBooksMiddleware = () => (next) => (action) => {
+const postBookMiddleware = () => (next) => (action) => {
   if (action.type === 'redux/books/ADD_BOOK') {
     fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/IdvgzwEjGRTOM81F7XDt/books',
       {
@@ -40,7 +40,7 @@ const removeBooksMiddleware = () => (next) => (action) => {
 };
 
 const composedEnhancer = compose(
-  applyMiddleware(postBooksMiddleware),
+  applyMiddleware(postBookMiddleware),
   applyMiddleware(removeBooksMiddleware),
   applyMiddleware(logger),
 );

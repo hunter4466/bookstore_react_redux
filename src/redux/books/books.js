@@ -20,24 +20,24 @@ const updateBook = (payload) => ({
 });
 
 const booksReducer = (state = initialState, action) => {
-  const object = {};
-  const filteredObject = {};
+  const object1 = {};
+  const filteredObject1 = {};
   switch (action.type) {
     case ADD_BOOK:
       for (let i = 0; i < Object.keys(state).length; i += 1) {
-        object[Object.keys(state)[i]] = state[Object.keys(state)[i]];
+        object1[Object.keys(state)[i]] = state[Object.keys(state)[i]];
       }
-      object[Object.keys(action.payload)[0]] = action.payload[Object.keys(action.payload)[0]];
-      return object;
+      object1[Object.keys(action.payload)[0]] = action.payload[Object.keys(action.payload)[0]];
+      return object1;
     case UPDATE_BOOK:
       return action.payload;
     case REMOVE_BOOK:
       for (let i = 0; i < Object.keys(state).length; i += 1) {
         if (action.id !== Object.keys(state)[i]) {
-          filteredObject[Object.keys(state)[i]] = state[Object.keys(state)[i]];
+          filteredObject1[Object.keys(state)[i]] = state[Object.keys(state)[i]];
         }
       }
-      return filteredObject;
+      return filteredObject1;
     default:
       return state;
   }

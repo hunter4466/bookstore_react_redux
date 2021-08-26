@@ -5,9 +5,9 @@ import store from '../redux/configureStore';
 
 const BooksComponent = () => {
   const dispatch = useDispatch();
-  const [books, UpdateAllBooks] = useState([]);
+  const [books, UpdBooks] = useState([]);
   const updateAll = () => {
-    UpdateAllBooks(store.getState().booksReducer);
+    UpdBooks(store.getState().booksReducer);
   };
   store.subscribe(updateAll);
   useEffect(() => {
