@@ -1,5 +1,6 @@
 const ADD_BOOK = 'redux/books/ADD_BOOK';
 const REMOVE_BOOK = 'redux/books/REMOVE_BOOK';
+const UPDATE_BOOK = 'redux/books/UPDATE_BOOK';
 
 const initialState = [];
 
@@ -13,23 +14,35 @@ const removeBook = (i) => ({
   id: i,
 });
 
+const updateBook = (payload) => ({
+  type: UPDATE_BOOK,
+  payload,
+});
+
 const booksReducer = (state = initialState, action) => {
-  const array = [];
-  state.forEach((elem) => {
-    array.push(elem);
-  });
+  const object = {};
+  const filteredObject = {};
   switch (action.type) {
     case ADD_BOOK:
-      array.push({
-        id: state.length + 1,
-        data: action.payload,
-      });
-      return array;
+      for (let i = 0; i < Object.keys(state).length; i += 1) {
+        object[Object.keys(state)[i]] = state[Object.keys(state)[i]];
+      }
+      object[Object.keys(action.payload)[0]] = action.payload[Object.keys(action.payload)[0]];
+      return object;
+    case UPDATE_BOOK:
+      return action.payload;
     case REMOVE_BOOK:
-      return state.filter((book) => action.id !== book.id);
+      for (let i = 0; i < Object.keys(state).length; i += 1) {
+        if (action.id !== Object.keys(state)[i]) {
+          filteredObject[Object.keys(state)[i]] = state[Object.keys(state)[i]];
+        }
+      }
+      return filteredObject;
     default:
       return state;
   }
 };
 
-export { addBook, removeBook, booksReducer };
+export {
+  addBook, removeBook, booksReducer, updateBook,
+};

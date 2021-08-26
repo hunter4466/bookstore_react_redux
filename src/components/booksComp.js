@@ -1,54 +1,82 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook, removeBook } from '../redux/books/books';
+import { addBook, removeBook, updateBook } from '../redux/books/books';
 import store from '../redux/configureStore';
 
 const BooksComponent = () => {
   const dispatch = useDispatch();
-  const [books, UpdateBooks] = useState(store.getState().booksReducer);
+  const [books, UpdateAllBooks] = useState([]);
+  const updateAll = () => {
+    UpdateAllBooks(store.getState().booksReducer);
+  };
+  store.subscribe(updateAll);
+  useEffect(() => {
+    fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/IdvgzwEjGRTOM81F7XDt/books',
+      {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }).then((response) => response.json())
+      .then((json) => dispatch(updateBook(json)));
+  }, []);
+
   let bookInputValue = '';
-  let authorInputValue = '';
   let catInputValue = '';
 
   const handleBookInputWr = () => {
     bookInputValue = document.getElementById('newBookInp').value;
   };
-  const handleAuthorInputWr = () => {
-    authorInputValue = document.getElementById('newAuthInp').value;
-  };
+
   const handleCatInputWr = () => {
     catInputValue = document.getElementById('newCatInp').value;
   };
 
   const clearInput = () => {
     document.getElementById('newBookInp').value = '';
-    document.getElementById('newAuthInp').value = '';
     document.getElementById('newCatInp').value = '';
   };
 
   const submitBookToStore = (payload) => {
     dispatch(addBook(payload));
-    const newState = store.getState().booksReducer;
-    UpdateBooks(newState);
     clearInput();
   };
   const removeBookFromStore = (i) => {
     dispatch(removeBook(i));
-    UpdateBooks(store.getState().booksReducer);
   };
+  const idGenerator = () => {
+    const guid = () => {
+      const s4 = () => Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+      return `${s4() + s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
+    };
+    const newKey = guid();
+    return newKey;
+  };
+
+  const handleSubmit = () => {
+    const uniqueId = idGenerator();
+    const toSubmit = {};
+    toSubmit[uniqueId] = [{
+      category: catInputValue,
+      title: bookInputValue,
+    }];
+    submitBookToStore(toSubmit);
+  };
+
   return (
     <div>
       <ul>
-        {books.map((array) => (
-          <li key={array.id}>
-            <h1>{array.data.category}</h1>
-            <h2>{array.data.title}</h2>
-            <h2>{array.data.author}</h2>
+        {Object.keys(books).map((array) => (
+          <li key={array}>
+            <h1>{books[array][0].category}</h1>
+            <h2>{books[array][0].title}</h2>
             <button type="button">Comments</button>
             <button
               type="button"
               onClick={() => {
-                removeBookFromStore(array.id);
+                removeBookFromStore(array);
               }}
             >
               Remove
@@ -59,9 +87,15 @@ const BooksComponent = () => {
       </ul>
       <div>
         <input id="newBookInp" type="text" onChange={() => { handleBookInputWr(); }} />
-        <input id="newAuthInp" type="text" onChange={() => { handleAuthorInputWr(); }} />
         <input id="newCatInp" type="text" onChange={() => { handleCatInputWr(); }} />
-        <button type="button" onClick={() => { submitBookToStore({ category: catInputValue, title: bookInputValue, author: authorInputValue }); }}>Add Book</button>
+        <button
+          type="button"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          Add Book
+        </button>
       </div>
     </div>
   );
