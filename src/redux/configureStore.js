@@ -25,7 +25,7 @@ const postBooksMiddleware = () => (next) => (action) => {
   }
   next(action);
 };
-/*  */
+
 const removeBooksMiddleware = () => (next) => (action) => {
   if (action.type === 'redux/books/REMOVE_BOOK') {
     fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/IdvgzwEjGRTOM81F7XDt/books/${action.id}`,
