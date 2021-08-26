@@ -33,7 +33,6 @@ Get a live preview of the project on this link
 
 - Github: [Hunter4466](https://github.com/hunter4466)
 
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
