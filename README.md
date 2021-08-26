@@ -29,7 +29,7 @@ Get a live preview of the project on this link
 
 ## Authors
 
-👤 **Mario Chois** 
+👤 **Mario Chois**
 
 - Github: [Hunter4466](https://github.com/hunter4466)
 
