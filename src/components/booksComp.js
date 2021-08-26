@@ -31,7 +31,7 @@ const BooksComponent = () => {
   const handleCatInputWr = () => {
     catInputValue = document.getElementById('newCatInp').value;
   };
-
+/*  */
   const clearInput = () => {
     document.getElementById('newBookInp').value = '';
     document.getElementById('newCatInp').value = '';
