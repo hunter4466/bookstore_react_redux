@@ -7,7 +7,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import CategoriesComponent from './redux/categories/categories';
-import BooksComponent from './redux/books/books';
+import BooksComponent from './components/booksComp';
 
 // eslint-disable-next-line react/prefer-stateless-function
 const App = () => (

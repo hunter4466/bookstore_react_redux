@@ -22,7 +22,7 @@ Run:
 
 ## Link
 
-Get a live preview of the project on this link
+Get a live preview of the project on this link  
 
 - Link: [Live-Preview](https://hunter4466.github.io/bookstore_react_redux/public/index.html)
 
@@ -32,7 +32,6 @@ Get a live preview of the project on this link
 👤 **Mario Chois**
 
 - Github: [Hunter4466](https://github.com/hunter4466)
-
 
 ## 🤝 Contributing
 
