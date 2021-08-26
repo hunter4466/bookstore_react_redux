@@ -1,0 +1,20 @@
+@import "./modules/list";
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+  }
+
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Roboto+Slab:wght@700&display=swap')
+}
+.list {
+    @include removeDec;
+}
+.main_title {
+    font-family: montserrat-bold, sans-serif;
+}
+.link_route {
+    font-family: montserrat-bold, sans-serif;
+}

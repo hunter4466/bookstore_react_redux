@@ -13,14 +13,14 @@ import BooksComponent from './components/booksComp';
 const App = () => (
   <Router>
     <ul className="nav-bar">
-      <li>
-        Bookstore CMS
+      <li className="list">
+        <h1 className="main_title">Bookstore CMS</h1>
       </li>
-      <li>
-        <Link to="/">Books</Link>
+      <li className="list">
+        <Link className="link_route" to="/">Books</Link>
       </li>
-      <li>
-        <Link to="/categories">Categories</Link>
+      <li className="list">
+        <Link className="link_route" to="/categories">Categories</Link>
       </li>
     </ul>
     <Switch>
