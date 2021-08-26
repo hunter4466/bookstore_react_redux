@@ -36,7 +36,7 @@ const BooksComponent = () => {
     document.getElementById('newBookInp').value = '';
     document.getElementById('newCatInp').value = '';
   };
-
+/*  */
   const submitBookToStore = (payload) => {
     dispatch(addBook(payload));
     clearInput();
