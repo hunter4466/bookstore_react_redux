@@ -1,6 +1,7 @@
 @import "./modules/removers";
 @import "./modules/wrappers";
 
+/* ------ fonts ----- */
 @font-face {
     font-family: 'montserrat-bold';
     src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
@@ -11,16 +12,45 @@
     src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@700&display=swap')
 }
 
+@font-face {
+    font-family: 'roboto-light';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+}
+
+.roboto-bold {
+    font-family: roboto-bold, sans-serif;
+}
+.montserrat-bold {
+    font-family: montserrat-bold, sans-serif;
+}
+.montserrat-regular {
+    font-family: montserrat-regular, sans-serif;
+}
+
+/* --- end of fonts -- */
+
 body {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f5f6fa;
+    user-select: none;
+}
+.main_container {
+    margin-top: 9.313rem;
+    width: 87.5rem;
+    height: fit-content;
+    margin-left: 6.25rem;
+    background-color: #fafafa;
+    box-shadow: 10px 10px 40px 10px rgba(0,0,0,0.2);
+    margin-bottom: 11.75rem;
 }
 .nav-bar {
     @include flexBox;
+    width: 87.5rem;
     height: 5.938rem;;
-    margin-top: 11.875rem;
+    margin-bottom: 2.375rem;
     background-color: white;
     padding-bottom: auto;
     padding-top: auto;
+    padding-left: 0px;
 }
 .list {
     @include removeDec;
@@ -29,19 +59,30 @@ body {
 }
 .nav-bar-links {
     height: 50px;
+    padding-top: 2rem;
 }
 .main_title {
     @include remMarg;
-    font-family: montserrat-bold, sans-serif;
     font-size: 1.875rem;
     color: #0290ff;
 }
 .link_route {
     margin-top: 50px;
-    font-family: montserrat-regular, sans-serif;
     letter-spacing: 1.9px;
     font-size: 0.813rem;
     height: 1rem;
     color: black;
+    margin-top: 1rem;
+    opacity: 50%;
     @include removeDec;
+    transition: ease-in-out 0.2s
+}
+.link_route:hover {
+    opacity: 100%;
+}
+.link_route_cont {
+    transition: ease-in-out 0.2s;
+}
+.link_route_cont:hover {
+    transform: scale(1.5);
 }

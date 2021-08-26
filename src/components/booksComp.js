@@ -21,17 +21,6 @@ const BooksComponent = () => {
       .then((json) => dispatch(updateBook(json)));
   }, []);
 
-  let bookInputValue = '';
-  let catInputValue = '';
-
-  const handleBookInputWr = () => {
-    bookInputValue = document.getElementById('newBookInp').value;
-  };
-
-  const handleCatInputWr = () => {
-    catInputValue = document.getElementById('newCatInp').value;
-  };
-
   const clearInput = () => {
     document.getElementById('newBookInp').value = '';
     document.getElementById('newCatInp').value = '';
@@ -56,6 +45,8 @@ const BooksComponent = () => {
   };
 
   const handleSubmit = () => {
+    const bookInputValue = document.getElementById('newBookInp').value;
+    const catInputValue = document.getElementById('newCatInp').value;
     const uniqueId = idGenerator();
     const toSubmit = {};
     toSubmit[uniqueId] = [{
@@ -67,14 +58,14 @@ const BooksComponent = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="articles_container">
         {Object.keys(books).map((array) => (
           <li className="article_wrap" key={array}>
-            <h1 className="category_tag">{books[array][0].category}</h1>
-            <h2 className="title_tag">{books[array][0].title}</h2>
+            <h1 className="montserrat-bold category_tag">{books[array][0].category}</h1>
+            <h2 className="roboto-bold title_tag">{books[array][0].title}</h2>
             <button className="article_btn" type="button">Comments</button>
             <button
-              className="article_btn"
+              className="roboto-bold article_btn"
               type="button"
               onClick={() => {
                 removeBookFromStore(array);
@@ -86,17 +77,32 @@ const BooksComponent = () => {
           </li>
         ))}
       </ul>
-      <div>
-        <input id="newBookInp" type="text" onChange={() => { handleBookInputWr(); }} />
-        <input id="newCatInp" type="text" onChange={() => { handleCatInputWr(); }} />
-        <button
-          type="button"
-          onClick={() => {
-            handleSubmit();
-          }}
-        >
-          Add Book
-        </button>
+      <div className="add_section_main_container">
+        <h1 className="montserrat-bold add_section_title">
+          ADD NEW BOOK
+        </h1>
+        <div className="input_area">
+          <input placeholder="Title" className="montserrat-regular add_input_1" id="newBookInp" type="text" />
+          <select placeholder="Category" className="montserrat-regular add_input_2" id="newCatInp" name="cars">
+            <option disabled selected>Category</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Horror">Horror</option>
+            <option value="Animated">Animated</option>
+            <option value="Romantic">Romantic</option>
+            <option value="ScyFy">ScyFy</option>
+          </select>
+          <button
+            className="add_btn roboto-bold"
+            type="button"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            ADD BOOK
+          </button>
+        </div>
       </div>
     </div>
   );
