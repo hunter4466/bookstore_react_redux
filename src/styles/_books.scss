@@ -1,5 +1,6 @@
 @import "./modules/removers";
 @import "./modules/wrappers";
+@import "./modules/buttons";
 
 @font-face {
     font-family: 'montserrat-bold';
@@ -10,31 +11,46 @@
     font-family: 'montserrat-regular';
     src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@700&display=swap')
 }
-.nav-bar {
-    @include flexBox;
-    height: fit-content;
-    margin-top: 11.875rem;
+
+@font-face {
+    font-family: 'roboto-bold';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 }
-.list {
+@font-face {
+    font-family: 'roboto-light';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+}
+
+.category_tag {
     @include removeDec;
-    margin-left: 1.469rem;
-}
-.nav-bar-links {
-    height: 50px;
-}
-.main_title {
-    @include remMarg;
+    color: #121212;
+    opacity: 50%;
     font-family: montserrat-bold, sans-serif;
-    font-size: 1.875rem;
-    height: 2.313em;
-    color: #0290ff;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
 }
-.link_route {
-    margin-top: 20px;
-    font-family: montserrat-regular, sans-serif;
-    letter-spacing: 1.9px;
-    font-size: 0.813rem;
-    height: 1rem;
-    color: black;
+.title_tag {
     @include removeDec;
+    color: black;
+    font-family: roboto-bold, sans-serif;
+    font-size: 1.375rem;
+    height: 1.813rem;
+    margin-top: 0.01rem;
+    margin-bottom: 1.5rem;
+    
+}
+.article_btn {
+    @include bgLessBtn;
+    font-family: roboto-bold, sans-serif;
+    font-size: 0.875rem;
+}
+.article_wrap {
+    @include removeDec;
+    margin-left: 2.938rem;
+    border-radius: 4px;
+    border: solid 1px #e8e8e8;
+    background-color: white;
+    padding-left: 1.688rem;
+    padding-top: 2rem;
+    padding-bottom: 1.75rem;
 }

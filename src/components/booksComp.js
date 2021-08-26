@@ -69,11 +69,12 @@ const BooksComponent = () => {
     <div>
       <ul>
         {Object.keys(books).map((array) => (
-          <li key={array}>
+          <li className="article_wrap" key={array}>
             <h1 className="category_tag">{books[array][0].category}</h1>
-            <h2>{books[array][0].title}</h2>
-            <button type="button">Comments</button>
+            <h2 className="title_tag">{books[array][0].title}</h2>
+            <button className="article_btn" type="button">Comments</button>
             <button
+              className="article_btn"
               type="button"
               onClick={() => {
                 removeBookFromStore(array);
@@ -81,7 +82,7 @@ const BooksComponent = () => {
             >
               Remove
             </button>
-            <button type="button">Edit</button>
+            <button className="article_btn" type="button">Edit</button>
           </li>
         ))}
       </ul>

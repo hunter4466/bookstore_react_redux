@@ -11,9 +11,37 @@
     src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@700&display=swap')
 }
 
-.category_tag {
-    @include remMarg;
+body {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.nav-bar {
+    @include flexBox;
+    height: 5.938rem;;
+    margin-top: 11.875rem;
+    background-color: white;
+    padding-bottom: auto;
+    padding-top: auto;
+}
+.list {
     @include removeDec;
+    margin-left: 2.938rem;
+    height: 5.938rem;;
+}
+.nav-bar-links {
+    height: 50px;
+}
+.main_title {
+    @include remMarg;
     font-family: montserrat-bold, sans-serif;
-    font-size: 0.875rem;
+    font-size: 1.875rem;
+    color: #0290ff;
+}
+.link_route {
+    margin-top: 50px;
+    font-family: montserrat-regular, sans-serif;
+    letter-spacing: 1.9px;
+    font-size: 0.813rem;
+    height: 1rem;
+    color: black;
+    @include removeDec;
 }
