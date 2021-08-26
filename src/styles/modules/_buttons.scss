@@ -1,49 +1,50 @@
 @mixin bgLessBtn {
-    color: #4386bf;
-    margin-right: 2.125rem;
-    border-style: none;
-    background-color: white;
-    padding: 0;
-    width: fit-content;
-    transition: ease-in-out, 0.2s;
-    &:hover {
-        color: #305d85;
-        transform: scale(1.2);
-    }
+  color: #4386bf;
+  margin-right: 2.125rem;
+  border-style: none;
+  background-color: white;
+  padding: 0;
+  width: fit-content;
+  transition: ease-in-out, 0.2s;
+
+  &:hover {
+    color: #305d85;
+    transform: scale(1.2);
+  }
 }
 
 @mixin regBtn ($width, $height) {
-    width: $width;
-    height: $height;
-    background-color: #0290ff;
-    color: white;
-    border-style: none;
-    border-radius: 3px;
-    transition: ease-in-out, 0.2s;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 1px;
-    &:hover {
-        background-color: white;
-        border-color: #0290ff;
-        color: #0290ff;
-    }
+  width: $width;
+  height: $height;
+  background-color: #0290ff;
+  color: white;
+  border-radius: 3px;
+  transition: ease-in-out, 0.2s;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+
+  &:hover {
+    background-color: white;
+    border-color: #0290ff;
+    color: #0290ff;
+  }
 }
 
 @mixin regInput ($height, $width) {
-    color: rgb(102, 102, 102);
-    width: $width;
-    height: $height;
-    border-color: #e8e8e8;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    padding-left: 1rem;
-   padding-right: 1rem;
-   font-size: 1rem;
-   margin-right: 2.125rem;
-   &:focus {
-    outline: none;
-   }
-}
+  color: rgb(102, 102, 102);
+  width: $width;
+  height: $height;
+  border-color: #e8e8e8;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  margin-right: 2.125rem;
 
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,4 +1,4 @@
 @mixin flexBox ($direction : row) {
-    display: flex;
-    flex-direction: $direction;
+  display: flex;
+  flex-direction: $direction;
 }

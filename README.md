@@ -26,7 +26,6 @@ Get a live preview of the project on this link
 
 - Link: [Live-Preview](https://hunter4466.github.io/bookstore_react_redux/public/index.html)
 
-
 ## Authors 
 
 👤 **Mario Chois**

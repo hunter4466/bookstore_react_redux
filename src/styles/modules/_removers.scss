@@ -1,7 +1,8 @@
-@mixin removeDec{
-    list-style: none;
-    text-decoration: none;
+@mixin removeDec {
+  list-style: none;
+  text-decoration: none;
 }
+
 @mixin remMarg {
-    margin: 0px;
+  margin: 0;
 }
