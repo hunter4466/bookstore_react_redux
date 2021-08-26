@@ -70,7 +70,7 @@ const BooksComponent = () => {
       <ul>
         {Object.keys(books).map((array) => (
           <li key={array}>
-            <h1>{books[array][0].category}</h1>
+            <h1 className="category_tag">{books[array][0].category}</h1>
             <h2>{books[array][0].title}</h2>
             <button type="button">Comments</button>
             <button

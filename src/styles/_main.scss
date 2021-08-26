@@ -1,0 +1,19 @@
+@import "./modules/removers";
+@import "./modules/wrappers";
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+  }
+
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@700&display=swap')
+}
+
+.category_tag {
+    @include remMarg;
+    @include removeDec;
+    font-family: montserrat-bold, sans-serif;
+    font-size: 0.875rem;
+}

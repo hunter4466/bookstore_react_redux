@@ -1,4 +1,5 @@
-@import "./modules/list";
+@import "./modules/removers";
+@import "./modules/wrappers";
 
 @font-face {
     font-family: 'montserrat-bold';
@@ -7,14 +8,33 @@
 
 @font-face {
     font-family: 'montserrat-regular';
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Roboto+Slab:wght@700&display=swap')
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Slab:wght@700&display=swap')
+}
+.nav-bar {
+    @include flexBox;
+    height: fit-content;
+    margin-top: 11.875rem;
 }
 .list {
     @include removeDec;
+    margin-left: 1.469rem;
+}
+.nav-bar-links {
+    height: 50px;
 }
 .main_title {
+    @include remMarg;
     font-family: montserrat-bold, sans-serif;
+    font-size: 1.875rem;
+    height: 2.313em;
+    color: #0290ff;
 }
 .link_route {
-    font-family: montserrat-bold, sans-serif;
+    margin-top: 20px;
+    font-family: montserrat-regular, sans-serif;
+    letter-spacing: 1.9px;
+    font-size: 0.813rem;
+    height: 1rem;
+    color: black;
+    @include removeDec;
 }
