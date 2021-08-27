@@ -8,6 +8,7 @@
 
 .article_wrap {
   @include removeDec;
+  @include flexBox(row);
 
   width: 75rem;
   border-radius: 4px;
@@ -23,6 +24,8 @@
 .article_wrap:hover {
   transform: scale(1.05);
 }
+
+/* ------book section------- */
 
 .category_tag {
   @include removeDec;
@@ -75,4 +78,61 @@
 
 .add_btn {
   @include regBtn(11.5rem, 2.813rem);
+}
+
+/* ------ Progress section------- */
+.prog_1_cont {
+  @include flexBox(row);
+
+  margin-top: 1.3rem;
+  margin-left: 25rem;
+}
+
+.written_prog_cont {
+  @include flexBox(column);
+
+  margin-left: 1rem;
+}
+
+.load_ico {
+  width: 4.25rem;
+  height: 4.25rem;
+}
+
+.progress_perc {
+  @include remMarg;
+
+  font-size: 2rem;
+}
+
+.progress_status {
+  @include remMarg;
+
+  font-size: 0.875rem;
+  color: black;
+  opacity: 50%;
+}
+
+/* ------ Progress separator------- */
+.separator {
+  margin-top: 2rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  width: 0.125rem;
+  height: 4.375rem;
+}
+
+
+/* ------ Progress section 2------- */
+.chapter_title {
+  opacity: 50%;
+  font-size: 0.813rem;
+}
+
+.chapter_current {
+  font-size: 1rem;
+}
+
+.progress_btn {
+  @include regBtn(11.5rem, 2.313rem);
 }

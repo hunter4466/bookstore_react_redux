@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import CategoriesComponent from './redux/categories/categories';
 import BooksComponent from './components/booksComp';
-
+import user from './images/assets/user.png';
 // eslint-disable-next-line react/prefer-stateless-function
 const App = () => (
   <Router>
@@ -22,6 +22,9 @@ const App = () => (
         </li>
         <li className="list nav-bar-links link_route_cont">
           <Link className="montserrat-regular link_route" to="/categories">CATEGORIES</Link>
+        </li>
+        <li className="list nav-bar-links user_icon_cont">
+          <img className="user_icon" src={user} alt="user" />
         </li>
       </ul>
       <Switch>

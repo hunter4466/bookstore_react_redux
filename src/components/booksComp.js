@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, removeBook, updateBook } from '../redux/books/books';
 import store from '../redux/configureStore';
+import loading from '../images/assets/loading.png';
+import separator from '../images/assets/separator.png';
 
 const BooksComponent = () => {
   const dispatch = useDispatch();
@@ -61,19 +63,34 @@ const BooksComponent = () => {
       <ul className="articles_container">
         {Object.keys(books).map((array) => (
           <li className="article_wrap" key={array}>
-            <h1 className="montserrat-bold category_tag">{books[array][0].category}</h1>
-            <h2 className="roboto-bold title_tag">{books[array][0].title}</h2>
-            <button className="article_btn" type="button">Comments</button>
-            <button
-              className="roboto-bold article_btn"
-              type="button"
-              onClick={() => {
-                removeBookFromStore(array);
-              }}
-            >
-              Remove
-            </button>
-            <button className="article_btn" type="button">Edit</button>
+            <div className="book_section">
+              <h1 className="montserrat-bold category_tag">{books[array][0].category}</h1>
+              <h2 className="roboto-bold title_tag">{books[array][0].title}</h2>
+              <button className="article_btn" type="button">Comments</button>
+              <button
+                className="roboto-bold article_btn"
+                type="button"
+                onClick={() => {
+                  removeBookFromStore(array);
+                }}
+              >
+                Remove
+              </button>
+              <button className="article_btn" type="button">Edit</button>
+            </div>
+            <div className="prog_1_cont">
+              <img className="load_ico" alt="Progress" src={loading} />
+              <div className="written_prog_cont">
+                <h1 className="montserrat-light progress_perc">64%</h1>
+                <h2 className="montserrat-regular progress_status">Completed</h2>
+              </div>
+            </div>
+            <img className="separator" alt="Separator" src={separator} />
+            <div>
+              <h1 className="montserrat-regular chapter_title">CURRENT CHAPTER</h1>
+              <h2 className="roboto-bold chapter_current">Chapter 2: &quot;A Lesson Learned&quot;</h2>
+              <button type="button" className="progress_btn">UPDATE PROGRESS</button>
+            </div>
           </li>
         ))}
       </ul>

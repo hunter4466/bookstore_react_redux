@@ -17,8 +17,13 @@
   src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 }
 
+@font-face {
+  font-family: 'montserrat-light';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+}
+
 .roboto-bold {
-  font-family: roboto-bold, sans-serif;
+  font-family: roboto-light, sans-serif;
 }
 
 .montserrat-bold {
@@ -29,6 +34,10 @@
   font-family: montserrat-regular, sans-serif;
 }
 
+.montserrat-light {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 /* --- end of fonts -- */
 
 body {
@@ -37,10 +46,10 @@ body {
 }
 
 .main_container {
-  margin-top: 9.313rem;
+  margin-top: 6.313rem;
   width: 87.5rem;
   height: fit-content;
-  margin-left: 6.25rem;
+  margin-left: 15.75rem;
   background-color: #fafafa;
   box-shadow: 10px 10px 40px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 11.75rem;
@@ -100,4 +109,13 @@ body {
 
 .link_route_cont:hover {
   transform: scale(1.5);
+}
+
+.user_icon_cont {
+  margin-left: 47rem;
+}
+
+.user_icon {
+  width: 2.813rem;
+  height: 2.813rem;
 }
