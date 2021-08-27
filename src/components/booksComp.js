@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, removeBook, updateBook } from '../redux/books/books';
 import store from '../redux/configureStore';
+import loading from '../images/assets/loading.png';
+import separator from '../images/assets/separator.png';
 
 const BooksComponent = () => {
   const dispatch = useDispatch();
@@ -20,17 +22,6 @@ const BooksComponent = () => {
       }).then((response) => response.json())
       .then((json) => dispatch(updateBook(json)));
   }, []);
-
-  let bookInputValue = '';
-  let catInputValue = '';
-
-  const handleBookInputWr = () => {
-    bookInputValue = document.getElementById('newBookInp').value;
-  };
-
-  const handleCatInputWr = () => {
-    catInputValue = document.getElementById('newCatInp').value;
-  };
 
   const clearInput = () => {
     document.getElementById('newBookInp').value = '';
@@ -56,6 +47,8 @@ const BooksComponent = () => {
   };
 
   const handleSubmit = () => {
+    const bookInputValue = document.getElementById('newBookInp').value;
+    const catInputValue = document.getElementById('newCatInp').value;
     const uniqueId = idGenerator();
     const toSubmit = {};
     toSubmit[uniqueId] = [{
@@ -67,35 +60,66 @@ const BooksComponent = () => {
 
   return (
     <div>
-      <ul>
+      <ul className="articles_container">
         {Object.keys(books).map((array) => (
-          <li key={array}>
-            <h1>{books[array][0].category}</h1>
-            <h2>{books[array][0].title}</h2>
-            <button type="button">Comments</button>
-            <button
-              type="button"
-              onClick={() => {
-                removeBookFromStore(array);
-              }}
-            >
-              Remove
-            </button>
-            <button type="button">Edit</button>
+          <li className="article_wrap" key={array}>
+            <div className="book_section">
+              <h1 className="montserrat-bold category_tag">{books[array][0].category}</h1>
+              <h2 className="roboto-bold title_tag">{books[array][0].title}</h2>
+              <button className="article_btn" type="button">Comments</button>
+              <button
+                className="roboto-bold article_btn"
+                type="button"
+                onClick={() => {
+                  removeBookFromStore(array);
+                }}
+              >
+                Remove
+              </button>
+              <button className="article_btn" type="button">Edit</button>
+            </div>
+            <div className="prog_1_cont">
+              <img className="load_ico" alt="Progress" src={loading} />
+              <div className="written_prog_cont">
+                <h1 className="montserrat-light progress_perc">64%</h1>
+                <h2 className="montserrat-regular progress_status">Completed</h2>
+              </div>
+            </div>
+            <img className="separator" alt="Separator" src={separator} />
+            <div>
+              <h1 className="montserrat-regular chapter_title">CURRENT CHAPTER</h1>
+              <h2 className="roboto-bold chapter_current">Chapter 2: &quot;A Lesson Learned&quot;</h2>
+              <button type="button" className="progress_btn">UPDATE PROGRESS</button>
+            </div>
           </li>
         ))}
       </ul>
-      <div>
-        <input id="newBookInp" type="text" onChange={() => { handleBookInputWr(); }} />
-        <input id="newCatInp" type="text" onChange={() => { handleCatInputWr(); }} />
-        <button
-          type="button"
-          onClick={() => {
-            handleSubmit();
-          }}
-        >
-          Add Book
-        </button>
+      <div className="add_section_main_container">
+        <h1 className="montserrat-bold add_section_title">
+          ADD NEW BOOK
+        </h1>
+        <div className="input_area">
+          <input placeholder="Title" className="montserrat-regular add_input_1" id="newBookInp" type="text" />
+          <select placeholder="Category" className="montserrat-regular add_input_2" id="newCatInp" name="cars">
+            <option disabled selected>Category</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Horror">Horror</option>
+            <option value="Animated">Animated</option>
+            <option value="Romantic">Romantic</option>
+            <option value="ScyFy">ScyFy</option>
+          </select>
+          <button
+            className="add_btn roboto-bold"
+            type="button"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            ADD BOOK
+          </button>
+        </div>
       </div>
     </div>
   );
